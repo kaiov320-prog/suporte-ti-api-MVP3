@@ -356,10 +356,34 @@ Não ocorre redirecionamento para outra aplicação.
 - Consulta de saúde com conexão ao banco.
 - Permanência de um chamado após reiniciar o container.
 
-Essas verificações foram manuais. A revisão final ainda deve incluir
-casos de erro e execução a partir dos arquivos publicados.
+Essas verificações foram manuais. Os testes complementares estão
+registrados na seção “Validação da versão publicada”.
 
 ## Limites do escopo
 
 O projeto não implementa autenticação, autorização, anexos
 ou notificações. Os dados utilizados na demonstração são fictícios.
+
+## Validação da versão publicada
+
+Em 22/09/2026, os dois repositórios foram baixados do GitHub
+em formato ZIP e executados em containers separados, usando
+um banco de dados novo.
+
+Foram verificados com sucesso:
+
+- Construção e inicialização das imagens Docker.
+- Comunicação entre interface e API.
+- Consulta de endereço pelo ViaCEP.
+- Cadastro, listagem, edição e exclusão de chamados.
+- Permanência da alteração após recarregar a página.
+
+Durante o desenvolvimento, também foram verificados:
+
+- Filtros e contadores da interface.
+- Validação de campos obrigatórios.
+- Tratamento de CEP incompleto e inexistente.
+- Recuperação após indisponibilidade do back-end.
+- Persistência dos dados após reiniciar o container da API.
+
+Os testes foram realizados manualmente no macOS com Docker Desktop.
